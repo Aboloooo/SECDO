@@ -68,10 +68,21 @@ const cipherMap = {
 function start() {
   alert("start");
 }
-function processText() {
-  let plainTxt = $("#text").val().trim();
-  let encryptedTxt = $("#encrypted").val().trim();
-  let txt = plainTxt == "" ? encryptedTxt : plainTxt;
+ $("#encryptBtn").on('click', function() {
+    let input = $("#text").val().trim().split('');
+    //save all the input letters into an array
+    let array_input = [];
+        array_input.push(input)
 
-  $("#output").text("Output: " + txt);
-}
+    for(let i = 0; i < array_input.length; i++){
+      //foreach match letter save into a final array 
+      
+      //find an alternative in the dictionary array foreach of the splited words
+      /* cipherMap.forEach(input.split('') => {
+        
+      });  */
+    }
+    alert(array_input);
+
+});
+
