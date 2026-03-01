@@ -64,25 +64,56 @@ const cipherMap = {
   7: "H",
   8: "j",
   9: "N",
+
+  " ": " ",
 };
 function start() {
-  alert("start");
-}
+/*   alert("start");
+ */}
  $("#encryptBtn").on('click', function() {
-    let input = $("#text").val().trim().split('');
+  $("#output").html('');
+    let input = $("#text").val();
     //save all the input letters into an array
-    let array_input = [];
-        array_input.push(input)
+    let array_input = input.split('');    
+    $("#output").append("Your Encrypted Text: ")
 
-    for(let i = 0; i < array_input.length; i++){
-      //foreach match letter save into a final array 
-      
-      //find an alternative in the dictionary array foreach of the splited words
-      /* cipherMap.forEach(input.split('') => {
-        
-      });  */
+    array_input.forEach(element => {
+      if(cipherMap.hasOwnProperty(element)){
+        console.log("Key " + element + " found. Encrypted form " + cipherMap[element])
+      }else{
+        console.log("failed to find the key")
+      }
+      $("#output").append(cipherMap[element])
+    });
     }
-    alert(array_input);
+);
+$("#dencryptBtn").on('click', function() {
+    $("#output").html('')
+    let input = $("#text").val();
+    //save all the input letters into an array
+    let array_input = input.split('');    
+    $("#output").append("Your Decrypted Text: ")
 
-});
+    array_input.forEach(element => {
+      for(let key in cipherMap){
+        if(cipherMap[key] == element ){
+          console.log("key found for "+ element + " corresponds to: " + cipherMap[key]);
+        }else{
+          console.log("failed to find the value")
+        }
+        $("#output").append(cipherMap[key])
+    }
+    });
+    
+    /* array_input.forEach(element => {
+      if(cipherMap[]  == element ){
+        console.log("Key " + element + " found. Encrypted form " + cipherMap[element])
+      }else{
+        console.log("failed to find the key")
+      }
+      $("#output").append(cipherMap[element])
+    });
+    */
+    } 
+);
 
