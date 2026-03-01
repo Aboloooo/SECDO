@@ -88,32 +88,34 @@ function start() {
     }
 );
 $("#dencryptBtn").on('click', function() {
-    $("#output").html('')
+    $("#output").html('');
     let input = $("#text").val();
     //save all the input letters into an array
     let array_input = input.split('');    
-    $("#output").append("Your Decrypted Text: ")
+    $("#output").append("Your Decrypted Text: ");
+    
+    let decryptedText = "";
 
     array_input.forEach(element => {
-      for(let key in cipherMap){
-        if(cipherMap[key] == element ){
-          console.log("key found for "+ element + " corresponds to: " + cipherMap[key]);
-        }else{
-          console.log("failed to find the value")
+        let found = false;
+        
+        for(let key in cipherMap){
+            if(cipherMap[key] == element ){
+                console.log(`✓ Value "${element}" found! Corresponds to key: "${key}"`);
+                decryptedText += key;
+                found = true;
+                break; 
+            }
         }
-        $("#output").append(cipherMap[key])
-    }
+        
+        // If not found in cipherMap values
+        if (!found) {
+            console.log(`✗ No decryption found for "${element}"`);
+            decryptedText += element;
+        }
     });
     
-    /* array_input.forEach(element => {
-      if(cipherMap[]  == element ){
-        console.log("Key " + element + " found. Encrypted form " + cipherMap[element])
-      }else{
-        console.log("failed to find the key")
-      }
-      $("#output").append(cipherMap[element])
-    });
-    */
-    } 
-);
+    // Append the final result once
+    $("#output").append(decryptedText);
+});
 
