@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Text Encryption</title>
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .input-container {
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #output {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
   </head>
 
   <body>
@@ -12,15 +72,27 @@
       <h1>Text Encryption</h1>
       <h2>Encrypt Text</h2>
       <div class="input-container">
-        <textarea
-          id="text"
-          placeholder="Enter text here"
-        ></textarea>
+        <textarea id="text" placeholder="Enter text here"></textarea>
       </div>
       <button id="encryptBtn">Encrypt</button>
       <button id="dencryptBtn">Dencrypt</button>
     </div>
     <p id="output"></p>
+    <!-- <table>
+      <thead>
+        <tr>
+          <th>Original</th>
+          <th>Encrypted</th>
+        </tr>
+        <tr>
+          <td>test</td>
+          <td>test</td>
+        </tr>
+      </thead>
+      <tbody id="encryptionTableBody">
+         Encrypted characters will be appended here
+      </tbody>
+    </table> -->
     <script src="./script.js"></script>
   </body>
 </html>
